@@ -1,0 +1,112 @@
+body{
+    background-image:url("../img/3.jpg");
+    background-size: cover;
+}
+h2{
+    margin: 0px;
+    padding:0px;
+    font-family: 'Acme', sans-serif;
+}
+.header{
+
+}
+.inside-header{
+    min-height: 50px;
+    background: #000000;
+    opacity: 0.5;
+}
+
+.header h1{
+    color: white;
+    font-family: 'Lobster', cursive;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    left: 40%;
+}
+.main-section{
+    padding:110px;
+    padding-bottom: 0px;
+}
+p{
+    color:red;
+}
+.card-icon{
+    float:left
+}
+li.list-group-item.custom-style
+{
+    margin: auto;
+}
+.fa.fa-trash-o{
+    color:red;
+}
+.fa.fa-trash-o:hover {
+    -webkit-animation: shake 1s;
+    animation: shake 2s;
+}
+.fa.fa-pencil-square-o {
+
+}
+
+@media screen and (max-width:500px)
+{
+    .main-section{
+        padding:0px;
+    }
+}
+.first-icon{
+    position: absolute;
+    right:30px;
+}
+.second-icon{
+    position: absolute;
+    right:10px;
+}
+a.menubar-items-contact
+{
+    position: absolute;
+    top: 10px;
+    right: 50px;
+}
+a.menubar-items-about{
+    position: absolute;
+    top: 10px;
+    right: 120px;
+}
+a.menubar-items-toDoList{
+    position: absolute;
+    top: 10px;
+    right: 190px;}
+
+.quick-card-editor{
+    background: rgba(0,0,0,.6);
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.quick-card-editor-close-icon {
+    color: rgba(255,255,255,.6);
+    padding: 9px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transition-property: -webkit-transform,color;
+    transition-property: transform,color;
+    -webkit-transition-duration: 150ms;
+    transition-duration: 150ms;
+}
+div.quick-card-editor-card {
+    position: relative;
+    background:#ffffff;
+
+}
+.quick-card-editor.custom{
+    position: relative;
+    z-index: 11;
+    background: transparent;
+}

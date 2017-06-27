@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-header info-color white-text text-center">
+        <h2><img src="img/9.png" width="30px" height="30px" class="card-icon"/>Task to do</h2>
+    </div>
+    <div class="card-block">
+        <ul class="list-group" dnd-list="modelsListsObject.lists.newTask">
+            <li ng-show="showEventFunction({list:modelsListsObject.list.newTask})" class="list-group-item custom-style"
+                dnd-effect-allowed="move"
+                dnd-draggable="task"
+
+                ng-repeat="task in modelsListsObject.lists.newTask track by $index"
+                dnd-moved="dndMovedNewTaskFunction({index:$index})"
+                dnd-selected="modelsListsObject.selected=task"
+                ng-class="{'selected':modelsListsObject.selected===task}">
+                <h5>{{task}}</h5>
+                <a class="first-icon" ng-click="editTaskFunction({task,$index,list:modelsListsObject.lists.newTask});"><span
+                        class="fa fa-pencil-square-o"></span></a>
+                <a class="second-icon" ng-click="removeTaskFunction({$index,list:modelsListsObject.lists.newTask})"><span
+                        class="fa fa-trash-o"></span></a>
+            </li>
+            <li>
+                <div ng-show="editModeStatus.status" class="quick-card-editor custom">
+                    <div class="quick-card-editor-card">
+                        <input type="text" class="form-control" ng-model="editText">
+                    </div>
+                    <button type="button" class="btn btn-info" ng-click="saveUpdateFunction()">Update
+                    </button>
+                </div>
+            </li>
+            <li>{{doListStatus}}</li>
+        </ul>
+        <form name="myForm" ng-submit="addTaskFunction()">
+            <div class="md-form">
+                <input type="search" class="form-control" ng-model="inputTask" placeholder="Add Some Task"
+                       required></input>
+            </div>
+            <div class="md-form">
+                <button type="button" class="btn btn-info waves-effect"
+                        ng-click="addTaskFunction()">ADD TASK
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>List</title>
+    <!--google web fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <!--font awesome stylesheet-->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- bootstrap stylesheet-->
+    <link rel="stylesheet" href="bower_components/MDBootstrap/css/bootstrap.min.css">
+    <!--Material Design bootstrap stylesheet-->
+    <link rel="stylesheet" href="bower_components/MDBootstrap/css/mdb.min.css">
+    <!--Custom Stylesheet-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="myCtrl" ng-init="onLoad()">
+<!--header section-->
+<div class="header">
+    <div class="inside-header">
+    </div>
+    <h1>To Do List</h1>
+</div>
+<div class="main-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <do-list do-list-status="{{doListStatus}}" edit-mode-status="editModeDoList"
+                         show-event-function="showEvent(list)" models-lists-object="models"
+                         input-task="inputTask" add-task-function="addToList()"
+                         edit-text="editText"
+                         edit-task-function="editTask(task,$index,list)"
+                         dnd-moved-new-task-function="dndMovedNewTaskEvent(index)"
+                         remove-task-function="removeTask($index,list)"
+                         save-update-function="saveUpdateList()"></do-list>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <doing-list models-lists-object="models" edit-mode-status="editModeDoingList"
+                            dnd-moved-doing-task-function="dndMovedDoingTaskEvent(index)"
+                            edit-task-function="editTask(task,$index,list)" edit-text="editText"
+                            remove-task-function="removeTask($index,list)"
+                            save-update-function="saveUpdateList()" doing-list-status="{{doingListStatus}}">
+                </doing-list>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <done-List models-lists-object="models" edit-mode-status="editModeDoneList"
+                           dnd-moved-done-task-function="dndMovedDoneTaskEvent(index)"
+                           edit-task-function="editTask(task,$index,list)" edit-text="editText"
+                           remove-task-function="removeTask($index,list)"
+                           save-update-function="saveUpdateList()" done-list-status="{{doneListStatus}}">
+                </done-List>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div ng-show="showOverlayEvent()" class="quick-card-editor">
+    <a ng-click="hideEditPanel()"><span class="fa fa-close fa-2x quick-card-editor-close-icon"></span></a>
+</div>
+
+<!--jquery script file-->
+<script src="bower_components/MDBootstrap/js/jquery-3.1.1.min.js"></script>
+<!--Tether script file-->
+<script src="bower_components/MDBootstrap/js/tether.min.js"></script>
+<!--bootstrap script file-->
+<script src="bower_components/MDBootstrap/js/bootstrap.min.js"></script>
+<!--Mdb script file-->
+<script src="bower_components/MDBootstrap/js/mdb.min.js"></script>
+<!--Angular script file-->
+<script src="bower_components/angular/angular.min.js"></script>
+<!--Angular route script-->
+<script src="bower_components/angular-route/angular-route.js"></script>
+<!--Angular Drag N Drop script file-->
+<script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+<!--controller for todoList -->
+<script src="app/controller/toDoList.controller.js"></script>
+<!--services for todoList-->
+<script src="app/service/toDoList.service.js"></script>
+<!--toDoList Directive-->
+<script src="app/directive/toDoList.directive.js"></script>
+</body>
+</html>

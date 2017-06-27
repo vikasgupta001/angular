@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header success-color white-text text-center">
+        <h2><img src="img/5.png" width="30px" height="30px" class="card-icon"/>Task Completed</h2>
+    </div>
+    <div class="card-block">
+        <ul class="list-group" dnd-list="modelsListsObject.lists.doneTask">
+            <li ng-hide="editModeStatus.status" class="list-group-item custom-style"
+                ng-repeat="task in modelsListsObject.lists.doneTask track by $index"
+                dnd-draggable="task" dnd-moved="dndMovedDoneTaskFunction({index:$index})"
+                dnd-effect-allowed="move"
+                dnd-selected="modelsListsObject.selected=task"
+                ng-class="{'selected':modelsListsObject.selected===task}">
+                <h5>{{task}}</h5>
+                <a class="first-icon" ng-click="editTaskFunction({task,$index,list:modelsListsObject.lists.doneTask})"><span
+                        class="fa fa-pencil-square-o"></span></a>
+                <a class="second-icon" ng-click="removeTaskFunction({$index,list:modelsListsObject.lists.doneTask})"><span
+                        class="fa fa-trash-o"></span></a>
+            </li>
+            <li ng-show="(editModeStatus.status)" class="quick-card-editor custom">
+                <div class="quick-card-editor-card">
+                    <input type="text" class="form-control" ng-model="editText">
+                </div>
+                <button type="button" class="btn btn-info" ng-click="saveUpdateFunction()">Update</button>
+            </li>
+            <li>{{doneListStatus}}</li>
+        </ul>
+    </div>
+</div>
